@@ -1,0 +1,38 @@
+{
+  "feature_cols": [
+    "hour_numeric",
+    "time_of_day_enc",
+    "day_of_week_enc",
+    "peak_enc",
+    "holiday_enc",
+    "Bus Capacity",
+    "busstop_enc",
+    "destination_enc",
+    "Lag t-1",
+    "Lag t-2"
+  ],
+  "seq_len": 10,
+  "bus_capacity": 70,
+  "time_of_day_classes": [
+    "Afternoon",
+    "Evening",
+    "Morning"
+  ],
+  "day_of_week_classes": [
+    "Friday",
+    "Monday",
+    "Saturday",
+    "Sunday",
+    "Thursday",
+    "Tuesday",
+    "Wednesday"
+  ],
+  "busstop_classes": [
+    "Downtown"
+  ],
+  "destination_classes": [
+    "Batsinda",
+    "Kimironko",
+    "Nyamirambo"
+  ]
+}

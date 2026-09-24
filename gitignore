@@ -1,0 +1,26 @@
+# ============================================================
+# Only push: Python code (.py), notebook (.ipynb), dataset (.csv),
+# README.md and requirements.txt. Everything else is ignored.
+# ============================================================
+
+# 1. Ignore everything by default
+*
+
+# 2. Allow folders (so Git can look inside them)
+!*/
+
+# 3. Allow only these file types
+!*.py
+!*.ipynb
+!*.csv
+!README.md
+!requirements.txt
+!.gitignore
+
+# 4. Always ignore secrets, environments and caches
+.env
+venv/
+.venv/
+env/
+__pycache__/
+.ipynb_checkpoints/
