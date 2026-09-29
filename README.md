@@ -29,7 +29,7 @@ Specific objectives:
 
 ### 3.1 Dataset
 
-File: `passenger_count_dataset.csv` — **64,260 records, 11 columns, no missing values.**
+File: `passenger_count_dataset.csv` **64,260 records, 11 columns, no missing values.**
 
 | Column            | Description                                         |
 | ----------------- | --------------------------------------------------- |
@@ -49,14 +49,14 @@ Passenger counts range from 12 to 255 (mean ≈ 106).
 
 ### 3.2 Pre-processing
 
-1. **Time parsing** — the slot start time is converted to a numeric hour (e.g. `07:30-08:00` → `7.5`).
+1. **Time parsing** the slot start time is converted to a numeric hour (e.g. `07:30-08:00` → `7.5`).
 2. **Label encoding**: `Time of Day`, `Day of Week`, `BusStop` and `Destination` are encoded as integers (encoders saved as `le_*.pkl`). Peak and Holiday are encoded as 0/1.
 3. **Feature set (10 features):** `hour_numeric, time_of_day_enc, day_of_week_enc, peak_enc, holiday_enc, Bus Capacity, busstop_enc, destination_enc, Lag t-1, Lag t-2`.
 4. **Scaling**: features and target are scaled with separate scalers (`scaler_X.pkl`, `scaler_y.pkl`).
 5. **Sequence building**: sliding windows of **10 consecutive time steps** are created, giving input of shape `(samples, 10, 10)`.
 6. **Train/test split**: 80% / 20% **without shuffling**, so the temporal order is preserved (51,400 training and 12,850 test sequences).
 
-### 3.3 Model Architecture — BiLSTM
+### 3.3 Model Architecture BiLSTM
 
 A Bidirectional LSTM reads each sequence both forwards and backwards, which lets it capture demand patterns before and after a given point in the sequence.
 
@@ -140,8 +140,8 @@ folder_name/
 
 There are **two ways** to use the model:
 
-- **Option A — Streamlit dashboard:** the quickest way to see predictions. No database needed.
-- **Option B — Flask REST API:** the full backend with login, PostgreSQL and saved prediction history (used by the web frontend).
+- **Option A Streamlit dashboard:** the quickest way to see predictions. No database needed.
+- **Option B Flask REST API:** the full backend with login, PostgreSQL and saved prediction history (used by the web frontend).
 
 ### Step 1 Install the prerequisites
 
@@ -155,13 +155,13 @@ Check your Python version:
 python --version
 ```
 
-### Step 2 — Open the project folder
+### Step 2 Open the project folder
 
 ```bash
 cd folder_name
 ```
 
-### Step 3 — Create and activate a virtual environment
+### Step 3 Create and activate a virtual environment
 
 **Windows:**
 
@@ -205,9 +205,9 @@ Run all cells from top to bottom (**Kernel Restart & Run All**). This regenerate
 
 ---
 
-### Option A — Run the Streamlit Dashboard
+### Option A Run the Streamlit Dashboard
 
-### Step 6A — Start the app
+### Step 6A Start the app
 
 ```bash
 streamlit run app.py
@@ -215,7 +215,7 @@ streamlit run app.py
 
 Your browser opens at **http://localhost:8501**.
 
-### Step 7A — Make a prediction
+### Step 7A Make a prediction
 
 1. Choose the **time slot**, **day of week**, **time of day** and **peak / off-peak**.
 2. Choose the **bus stop** (Downtown) and the **destination** (Batsinda, Kimironko or Nyamirambo).
@@ -237,7 +237,7 @@ Open `psql` (or pgAdmin) and run:
 CREATE DATABASE bus_prediction;
 ```
 
-### Step 7B — Configure the `.env` file
+### Step 7B Configure the `.env` file
 
 Create or edit the `.env` file in the project folder:
 
@@ -251,7 +251,7 @@ DEFAULT_USER_NAME=Admin
 
 Replace `YOUR_PASSWORD` with your PostgreSQL password.
 
-### Step 8B — Create the default admin user
+### Step 8B Create the default admin user
 
 ```bash
 python seed.py
@@ -261,7 +261,7 @@ This creates the database tables and an admin account using the credentials in `
 
 > `migrate.py` is only needed if you have an **old** database whose `users` table has no `role` column. Before running it, change the hard-coded email inside the file to your admin email.
 
-### Step 9B — Start the API
+### Step 9B Start the API
 
 ```bash
 python api.py
